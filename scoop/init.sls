@@ -30,7 +30,20 @@ Add scoop binaries required 'jq, minikube, kubectl, helm':
   cmd.run:
     - prepend_path: '{{ user_profile }}\scoop\shims'
     - shell: 'powershell'
-    - name: 'scoop install jq minikube kubectl helm'
+    - name: 'scoop install python jq minikube@0.27.0 kubectl helm'
     - env:
        - PATH:  '{{ [current_path, "{0}\\scoop\shims".format(user_profile)]|join(";") }}'
 
+install the pipenv:
+  cmd.run:
+    - shell: 'powershell'
+    - name: 'pip install pipenv'
+    - env:
+       - PATH:  '{{ [current_path, "{0}\\scoop\shims".format(user_profile)]|join(";") }}'
+
+# {% set execution_path = salt['environ.get']('EXECUTION_PATH') %}
+install pipenv:
+  cmd.run:
+    - shell: 'powershell'
+    - name: 'pipenv install'
+    - cwd: '{{ execution_path }}'
