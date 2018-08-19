@@ -2,6 +2,9 @@ set appropraite exeuction mode:
   cmd.run:
     - shell: 'powershell'
     - name: 'Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force'
+  chocolatey.uninstalled:
+    - name: 'minikube'
+    - uninstall_args: '-a -y --force'
 
 # {% set user_profile = salt['environ.get']('USERPROFILE') %}
 Run and install scoop:

@@ -6,5 +6,6 @@ install hyper-v:
   cmd.script:
     - source: 'salt://hyperv/files/configure-net.ps1'
     - shell: 'powershell'
+    - stateful: True
     - require:
       -  dism: 'Microsoft-Hyper-V'

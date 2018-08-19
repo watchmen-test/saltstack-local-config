@@ -1,0 +1,8 @@
+file_client: local
+startup_states: highstate
+file_roots:
+  base:
+    - {{ execution_path }}
+use_superseded:
+  - module.run
+verify_env: False
