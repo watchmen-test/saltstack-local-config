@@ -1,6 +1,10 @@
 # {% set user_name = "{0}\\{1}".format(salt['environ.get']('USERDOMAIN'), salt['environ.get']('USERNAME')) %}
 # {% set execution_path = salt['environ.get']('EXECUTION_PATH') %}
 stop the salt-minion service:
+  environ.set:
+    - name: EXECUTION_PATH
+    - value: '{{ execution_path }}'
+    - permanent: True
   service.dead:
     - name: salt-minion
   win_dacl.present:

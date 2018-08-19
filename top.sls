@@ -2,3 +2,4 @@ base:
   '*':
     - saltstack
     - scoop
+    - hyperv
