@@ -4,3 +4,4 @@ base:
     - scoop
     - hyperv
     - dhcpd
+    - windows
