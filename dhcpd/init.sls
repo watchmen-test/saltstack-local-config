@@ -23,6 +23,13 @@ run the server and configure:
   file.managed:
     - source: 'salt://dhcpd/files/dhcpsrv.ini.jinja'
     - name: 'C:/tools/dhcpd/dhcpsrv.ini'
+    - defaults:
+        dns_servers:
+          - 1.1.1.1
+          - 8.8.8.8
+          - 10.10.4.31
+          - 165.245.4.211
+    - template: jinja
   cmd.run:
     - name: 'C:/tools/dhcpd/dhcpsrv.exe -install -configfirewall'
   service.running:
