@@ -11,10 +11,10 @@ LEASETIME=86400
 NODETYPE=8
 SUBNETMASK=255.255.255.0
 NEXTSERVER=192.168.0.1
-DNS_0=1.1.1.1
-DNS_1=8.8.8.8
+{% for dns_server in dns_servers -%}
+DNS_{{ loop.index }}={{ dns_server }}
+{% endfor -%}
 ROUTER_0=192.168.0.1
-
 [DNS-SETTINGS]
 EnableDNS=1
 FORWARD=1.1.1.1

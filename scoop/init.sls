@@ -20,7 +20,7 @@ Add scoop extras:
   cmd.run:
     - shell: 'powershell'
     - prepend_path: '{{ user_profile }}\scoop\shims'
-    - name: 'scoop bucket add extras'
+    - name: 'scoop bucket add extras git@github.com:lukesampson/scoop-extras.git'
     - env:
       - PATH:  '{{ [current_path, "{0}\\scoop\shims".format(user_profile)]|join(";") }}'
     - unless:
@@ -30,7 +30,7 @@ Add scoop binaries required 'jq, minikube, kubectl, helm':
   cmd.run:
     - prepend_path: '{{ user_profile }}\scoop\shims'
     - shell: 'powershell'
-    - name: 'scoop install python jq minikube@0.27.0 kubectl helm'
+    - name: 'scoop install python jq minikube kubectl helm'
     - env:
        - PATH:  '{{ [current_path, "{0}\\scoop\shims".format(user_profile)]|join(";") }}'
 
